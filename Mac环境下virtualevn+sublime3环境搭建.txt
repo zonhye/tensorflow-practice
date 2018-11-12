@@ -1,0 +1,45 @@
+Mac环境下virtualevn+sublime3环境搭建
+
+1、终端下通过pip安装virtualenv和virtualenvwrapper，常用命令如下
+
+1.1、创建虚拟环境，如tensorflow
+先跳转到期望创建虚拟环境的路径下
+cd /Users/zhonghai/.virtualenvs
+
+再创建并指定虚拟环境的名称
+virtualenv --no-site-packages tensorflow
+
+参数--no-site-packages:系统Python环境中的所有第三方包都不会复制过来，这样就得到了一个不带任何第三方包的“干净”的Python运行环境
+
+1.2、激活虚拟环境管理器virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
+1.3、通过虚拟环境管理器virtualenvwrapper，查看所有已经建立的虚拟环境
+lsvirtualenv
+
+scikitenv
+=========
+
+tensorflow
+=========
+
+1.4、通过虚拟环境管理器virtualenvwrapper，激活虚拟环境
+workon scikitenv
+
+(scikitenv) zhonghaideMacBook-Pro:~ zhonghai
+$ pip3 list
+
+1.5、也可以直接通过virtualenv，激活虚拟环境
+source /Users/zhonghai/.virtualenvs/tensorflow/bin/activate
+
+1.6、进入虚拟环境后，安装tensorflow
+pip3 install --upgrade tensorflow
+pip3 list
+
+1.7、退出虚拟环境
+deactivate
+
+1.8、卸载虚拟环境
+rm -r /Users/zhonghai/Documents/IT/tensorflow
+
+2、sublime3下通过快捷键（Command+shift+P），安装package：Virtualenv。安装完成后，可以通过快捷键（同上），在命令框中输入virtualenv，选择对应的提示命令，进行虚拟环境的管理，如新建、激活、退出、卸载等，也可以进行python+virtualenv的设置，如果希望Ctrl+B时自动选择虚拟环境进行编译，在Tools-Build System中选择“Python+Virtualenv”。
